@@ -2,42 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DraftLine Pro</title>
     
-    <!-- Mobile PWA Compliance Tags -->
+    <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a202c">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <style>
-        html, body {
+        body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background-color: #1a202c;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
+        .loader {
+            text-align: center;
         }
     </style>
-</head>
-<body>
-
-    <!-- Embeds your underlying Base44 app cleanly -->
-    <iframe src="https://base44.app" allow="geolocation; camera; microphone"></iframe>
-
     <script>
-        // Registers our empty service worker shell
+        // Force immediate routing to your specific application layout 
+        window.location.replace("https://draftline-pro.base44.app");
+
+        // Service Worker registration
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
         }
     </script>
+</head>
+<body>
+    <div class="loader">
+        <h2>Loading DraftLine Pro...</h2>
+    </div>
 </body>
 </html>
